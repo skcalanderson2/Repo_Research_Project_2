@@ -7,6 +7,12 @@
 
 # RStudio files
 .Rproj.user/
+.RData
+
+# Raw Data Files
+repdata-data-StormData.csv
+repdata-peer2_doc-pd01016005curr.pdf
+repdata-peer2_doc-NCDC Storm Events-FAQ Page.pdf
 
 # produced vignettes
 vignettes/*.html
