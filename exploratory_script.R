@@ -29,6 +29,9 @@ grouped_by_EVTYPE <- health_storm_data %>% group_by(EVTYPE)
 sum_health <- summarise(grouped_by_EVTYPE, Sum = sum(fat_inj_sum))
 arrange_data <- arrange(sum_health, desc(Sum))
 top10 <- arrange_data[1:10,]
-par(mai=c(1.7,1.6,0.82,0.42)+.1, mgp=c(5.2,0.5,0))
-arplot(top10$Sum, names.arg=top10$EVTYPE, las=2, cex.names =  .5, xlab = "Weather Events", 
-       ylab = "Fatalities & Injuries", main = "Injuries & Fatalities from \nTop 10 Weather Events 2001 - 2011")
+par(mai=c(1.5,1.7,0.82,0.42)+.1, mgp=c(3,0.5,0))
+barplot(top10$Sum, names.arg=top10$EVTYPE, las=2, cex.names =  .5, 
+        xlab = "Injuries & Fatalities", ylab = "", 
+        main = "Injuries & Fatalities from \nTop 10 Weather Events 2001 - 2011", horiz = TRUE)
+
+
