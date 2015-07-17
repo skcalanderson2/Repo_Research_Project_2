@@ -1,20 +1,20 @@
 # History files
 .Rhistory
 .Rapp.history
-
 # Example code in package build process
 *-Ex.R
-
 # RStudio files
 .Rproj.user/
 .RData
-
 # Raw Data Files
 repdata-data-StormData.csv
 repdata-peer2_doc-pd01016005curr.pdf
 repdata-peer2_doc-NCDC Storm Events-FAQ Page.pdf
-
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
 .Rproj.user
+repdata-data-StormData.1csv
+repdata-data-StormData.csv.bz2
+rsconnect
+.~lock.repdata-data-StormData.csv#
