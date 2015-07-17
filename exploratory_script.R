@@ -1,0 +1,16 @@
+storm_data <- read_csv("repdata-data-StormData.csv")
+storm_data$BGN_DATE <- mdy_hms(storm_data$BGN_DATE)
+health_storm_data <- storm_data %>% filter(as.Date(BGN_DATE) > as.Date("2001/01/01")) %>% select(EVTYPE, FATALITIES, INJURIES)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="HIGH WIND", "WIND", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="EXCESSIVE HEAT", "HEAT", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="TSTM WIND/HAIL", "WIND-HAIL", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="WILD/FOREST FIRE", "FIRE", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="URBAN/SML STREAM FLD", "URBAN SML STREAM FLD", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="RECORD HEAT", "HEAT", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="WND", "WIND", health_storm_data$EVTYPE)
+health_storm_data$EVTYPE <- ifelse(health_storm_data$EVTYPE=="STRONG WIND", "WIND", health_storm_data$EVTYPE)
+
+
+grouped_by_EVTYPE <- health_storm_data %>% group_by(EVTYPE)
+sum_health <- summarise(grouped_by_EVTYPE, Sum = sum(fat_inj_sum))
+arrange_data <- arrange(sum_health, desc(Sum))

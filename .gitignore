@@ -17,3 +17,4 @@ repdata-peer2_doc-NCDC Storm Events-FAQ Page.pdf
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
+.Rproj.user
